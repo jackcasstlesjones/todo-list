@@ -1,0 +1,1 @@
+(()=>{"use strict";class t{constructor(t,i,s,e){this.title=t,this.description=i,this.dueDate=s,this.priority=e}returnToDo(){return console.log(this.title,this.description,this.dueDate,this.priority)}}let i=[];const s=function(){i.push(new t("take bin out","separate recycling and landfill","21/4/23","high")),console.log(i)};s(),s(),s()})();
