@@ -1,6 +1,7 @@
 import { ToDoCreate } from "./createtodo";
 import { createTodoCards } from "./create-todo-elements";
 import { getUserInfo } from "./getuserValues";
+import "./style.css";
 
 const submitBtn = document.getElementById("submit");
 
