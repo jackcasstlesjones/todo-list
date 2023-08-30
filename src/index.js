@@ -25,6 +25,9 @@ submitBtn.addEventListener("click", function (e) {
   projectOne.push(newObj);
   console.log(projectOne);
 
-  // Then call a SEPARATE function (in a different module)  that displays the projectOne array in the DOM
-  createTodoCards();
+  // This creates the HTML for each To Do item
+  let newCard = createTodoCards();
+
+  // Then call a SEPARATE function (in a different module) that displays the projectOne array in the DOM
+  newCard.textContent = JSON.stringify(newObj);
 });

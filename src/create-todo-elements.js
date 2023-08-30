@@ -11,4 +11,6 @@ export function createTodoCards() {
   newTodo.appendChild(descriptionField);
   newTodo.appendChild(dueDateField);
   newTodo.appendChild(priorityField);
+
+  return newTodo;
 }
