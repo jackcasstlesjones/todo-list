@@ -1,4 +1,4 @@
-export function createTodoCards(title, description, dueDate, priority) {
+export function createTodoCards() {
   const content = document.getElementById("content");
   const newTodo = document.createElement("ul");
   const titleField = document.createElement("li");

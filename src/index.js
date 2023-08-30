@@ -18,11 +18,13 @@ submitBtn.addEventListener("click", function (e) {
   const dueDate = getUserDueDate();
   const priority = getUserPriority();
   // This creates an object with the user data
-  console.log(new ToDoCreate(title, description, dueDate, priority));
+  const newObj = new ToDoCreate(title, description, dueDate, priority);
+  console.log(newObj);
 
   // Next I need to add this object to the projectOne array
+  projectOne.push(newObj);
+  console.log(projectOne);
 
-  // Then call a SEPARATE function (in a different module) that displays the projectOne array in the DOM
+  // Then call a SEPARATE function (in a different module)  that displays the projectOne array in the DOM
+  createTodoCards();
 });
-
-createTodoCards();

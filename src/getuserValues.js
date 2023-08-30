@@ -16,11 +16,4 @@ function getUserPriority() {
   return userPriority.value;
 }
 
-function getUserInfo() {
-  getUserTitle();
-  getUserDescription();
-  getUserDueDate();
-  getUserPriority();
-  return "hello";
-}
 export { getUserTitle, getUserDescription, getUserDueDate, getUserPriority };
