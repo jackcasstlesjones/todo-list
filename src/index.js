@@ -1,29 +1,28 @@
 import { ToDoCreate } from "./createtodo";
 import { createTodoCards } from "./create-todo-elements";
-import { getUserInfo } from "./getuserValues";
+import {
+  getUserTitle,
+  getUserDescription,
+  getUserDueDate,
+  getUserPriority,
+} from "./getuserValues";
 import "./style.css";
 
 const submitBtn = document.getElementById("submit");
+let projectOne = [];
 
 submitBtn.addEventListener("click", function (e) {
   e.preventDefault();
-  console.log(new ToDoCreate(getUserInfo()));
+  const title = getUserTitle();
+  const description = getUserDescription();
+  const dueDate = getUserDueDate();
+  const priority = getUserPriority();
+  // This creates an object with the user data
+  console.log(new ToDoCreate(title, description, dueDate, priority));
+
+  // Next I need to add this object to the projectOne array
+
+  // Then call a SEPARATE function (in a different module) that displays the projectOne array in the DOM
 });
-
-let projectOne = [];
-
-const title = "take bin out";
-const description = "separate recycling and landfill";
-const dueDate = "21/4/23";
-const priority = "high";
-
-const newToDoItem = function () {
-  projectOne.push(new ToDoCreate(title, description, dueDate, priority));
-  console.log(projectOne);
-};
-
-newToDoItem();
-newToDoItem();
-newToDoItem();
 
 createTodoCards();

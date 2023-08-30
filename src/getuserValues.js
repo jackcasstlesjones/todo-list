@@ -4,16 +4,16 @@ const userDueDate = document.getElementById("due-date");
 const userPriority = document.getElementById("priority");
 
 function getUserTitle() {
-  console.log(userTitle.value);
+  return userTitle.value;
 }
 function getUserDescription() {
-  console.log(userDescription.value);
+  return userDescription.value;
 }
 function getUserDueDate() {
-  console.log(userDueDate.value);
+  return userDueDate.value;
 }
 function getUserPriority() {
-  console.log(userPriority.value);
+  return userPriority.value;
 }
 
 function getUserInfo() {
@@ -21,5 +21,6 @@ function getUserInfo() {
   getUserDescription();
   getUserDueDate();
   getUserPriority();
+  return "hello";
 }
-export { getUserInfo };
+export { getUserTitle, getUserDescription, getUserDueDate, getUserPriority };
