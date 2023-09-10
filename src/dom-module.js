@@ -42,6 +42,7 @@ function displayProject() {
   contentDiv.innerHTML = "";
   return projectOne.forEach(function (project) {
     const newCard = createTodoCards();
+    newCard.classList.add("to-do-card");
     newCard.textContent = `Title: ${project.title} Description: ${project.description} Due Date: ${project.dueDate} Priority: ${project.priority}`;
   });
 }

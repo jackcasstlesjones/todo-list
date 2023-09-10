@@ -1,3 +1,12 @@
+/* 
+Colors:
+8ECAE6
+219EBC
+023047
+FFB703
+FB8500
+*/
+
 body {
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
@@ -11,4 +20,11 @@ form {
   gap: 20px;
   /* background-color: pink; */
   padding: 16px;
+}
+
+.to-do-card {
+  background-color: #ffb703;
+  padding: 10px;
+  width: 30%;
+  margin: 20px auto;
 }
