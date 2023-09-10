@@ -1,11 +1,12 @@
-import { ToDoCreate } from "./createtodo";
-import { createTodoCards } from "./create-todo-elements";
+import { ToDoCreate } from "./application-module";
+
 import {
   getUserTitle,
   getUserDescription,
   getUserDueDate,
   getUserPriority,
-} from "./getuserValues";
+  createTodoCards,
+} from "./dom-module";
 import "./style.css";
 
 const submitBtn = document.getElementById("submit");

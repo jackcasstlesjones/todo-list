@@ -110,33 +110,23 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
 
 /***/ }),
 
-/***/ "./src/create-todo-elements.js":
-/*!*************************************!*\
-  !*** ./src/create-todo-elements.js ***!
-  \*************************************/
+/***/ "./src/application-module.js":
+/*!***********************************!*\
+  !*** ./src/application-module.js ***!
+  \***********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   createTodoCards: () => (/* binding */ createTodoCards)\n/* harmony export */ });\nfunction createTodoCards() {\n  const content = document.getElementById(\"content\");\n  const newTodo = document.createElement(\"ul\");\n  const titleField = document.createElement(\"li\");\n  const descriptionField = document.createElement(\"li\");\n  const dueDateField = document.createElement(\"li\");\n  const priorityField = document.createElement(\"li\");\n\n  content.appendChild(newTodo);\n  newTodo.appendChild(titleField);\n  newTodo.appendChild(descriptionField);\n  newTodo.appendChild(dueDateField);\n  newTodo.appendChild(priorityField);\n\n  return newTodo;\n}\n\n\n//# sourceURL=webpack://todo-list/./src/create-todo-elements.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   ToDoCreate: () => (/* binding */ ToDoCreate)\n/* harmony export */ });\nclass ToDoCreate {\n  constructor(title, description, dueDate, priority) {\n    this.title = title;\n    this.description = description;\n    this.dueDate = dueDate;\n    this.priority = priority;\n  }\n\n  returnToDo() {\n    return console.log(\n      this.title,\n      this.description,\n      this.dueDate,\n      this.priority\n    );\n  }\n}\n\n\n\n\n//# sourceURL=webpack://todo-list/./src/application-module.js?");
 
 /***/ }),
 
-/***/ "./src/createtodo.js":
+/***/ "./src/dom-module.js":
 /*!***************************!*\
-  !*** ./src/createtodo.js ***!
+  !*** ./src/dom-module.js ***!
   \***************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   ToDoCreate: () => (/* binding */ ToDoCreate)\n/* harmony export */ });\nclass ToDoCreate {\n  constructor(title, description, dueDate, priority) {\n    this.title = title;\n    this.description = description;\n    this.dueDate = dueDate;\n    this.priority = priority;\n  }\n\n  returnToDo() {\n    return console.log(\n      this.title,\n      this.description,\n      this.dueDate,\n      this.priority\n    );\n  }\n}\n\n\n//# sourceURL=webpack://todo-list/./src/createtodo.js?");
-
-/***/ }),
-
-/***/ "./src/getuserValues.js":
-/*!******************************!*\
-  !*** ./src/getuserValues.js ***!
-  \******************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   getUserDescription: () => (/* binding */ getUserDescription),\n/* harmony export */   getUserDueDate: () => (/* binding */ getUserDueDate),\n/* harmony export */   getUserPriority: () => (/* binding */ getUserPriority),\n/* harmony export */   getUserTitle: () => (/* binding */ getUserTitle)\n/* harmony export */ });\nconst userTitle = document.getElementById(\"title\");\nconst userDescription = document.getElementById(\"description\");\nconst userDueDate = document.getElementById(\"due-date\");\nconst userPriority = document.getElementById(\"priority\");\n\nfunction getUserTitle() {\n  return userTitle.value;\n}\nfunction getUserDescription() {\n  return userDescription.value;\n}\nfunction getUserDueDate() {\n  return userDueDate.value;\n}\nfunction getUserPriority() {\n  return userPriority.value;\n}\n\n\n\n\n//# sourceURL=webpack://todo-list/./src/getuserValues.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   createTodoCards: () => (/* binding */ createTodoCards),\n/* harmony export */   getUserDescription: () => (/* binding */ getUserDescription),\n/* harmony export */   getUserDueDate: () => (/* binding */ getUserDueDate),\n/* harmony export */   getUserPriority: () => (/* binding */ getUserPriority),\n/* harmony export */   getUserTitle: () => (/* binding */ getUserTitle)\n/* harmony export */ });\nfunction createTodoCards() {\n  const content = document.getElementById(\"content\");\n  const newTodo = document.createElement(\"ul\");\n  const titleField = document.createElement(\"li\");\n  const descriptionField = document.createElement(\"li\");\n  const dueDateField = document.createElement(\"li\");\n  const priorityField = document.createElement(\"li\");\n\n  content.appendChild(newTodo);\n  newTodo.appendChild(titleField);\n  newTodo.appendChild(descriptionField);\n  newTodo.appendChild(dueDateField);\n  newTodo.appendChild(priorityField);\n\n  return newTodo;\n}\n\nconst userTitle = document.getElementById(\"title\");\nconst userDescription = document.getElementById(\"description\");\nconst userDueDate = document.getElementById(\"due-date\");\nconst userPriority = document.getElementById(\"priority\");\n\nfunction getUserTitle() {\n  return userTitle.value;\n}\nfunction getUserDescription() {\n  return userDescription.value;\n}\nfunction getUserDueDate() {\n  return userDueDate.value;\n}\nfunction getUserPriority() {\n  return userPriority.value;\n}\n\n\n\n\n//# sourceURL=webpack://todo-list/./src/dom-module.js?");
 
 /***/ }),
 
@@ -146,7 +136,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _createtodo__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./createtodo */ \"./src/createtodo.js\");\n/* harmony import */ var _create_todo_elements__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./create-todo-elements */ \"./src/create-todo-elements.js\");\n/* harmony import */ var _getuserValues__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./getuserValues */ \"./src/getuserValues.js\");\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n\n\n\n\n\nconst submitBtn = document.getElementById(\"submit\");\nlet projectOne = [];\n\nsubmitBtn.addEventListener(\"click\", function (e) {\n  e.preventDefault();\n  const title = (0,_getuserValues__WEBPACK_IMPORTED_MODULE_2__.getUserTitle)();\n  const description = (0,_getuserValues__WEBPACK_IMPORTED_MODULE_2__.getUserDescription)();\n  const dueDate = (0,_getuserValues__WEBPACK_IMPORTED_MODULE_2__.getUserDueDate)();\n  const priority = (0,_getuserValues__WEBPACK_IMPORTED_MODULE_2__.getUserPriority)();\n  // This creates an object with the user data\n  const newObj = new _createtodo__WEBPACK_IMPORTED_MODULE_0__.ToDoCreate(title, description, dueDate, priority);\n  console.log(newObj);\n\n  // Next I need to add this object to the projectOne array\n  projectOne.push(newObj);\n  console.log(projectOne);\n\n  // This creates the HTML for each To Do item\n  let newCard = (0,_create_todo_elements__WEBPACK_IMPORTED_MODULE_1__.createTodoCards)();\n\n  // Then call a SEPARATE function (in a different module) that displays the projectOne array in the DOM\n  newCard.textContent = JSON.stringify(newObj);\n});\n\n\n//# sourceURL=webpack://todo-list/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _application_module__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./application-module */ \"./src/application-module.js\");\n/* harmony import */ var _dom_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./dom-module */ \"./src/dom-module.js\");\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n\n\n\n\n\nconst submitBtn = document.getElementById(\"submit\");\nlet projectOne = [];\n\nsubmitBtn.addEventListener(\"click\", function (e) {\n  e.preventDefault();\n  const title = (0,_dom_module__WEBPACK_IMPORTED_MODULE_1__.getUserTitle)();\n  const description = (0,_dom_module__WEBPACK_IMPORTED_MODULE_1__.getUserDescription)();\n  const dueDate = (0,_dom_module__WEBPACK_IMPORTED_MODULE_1__.getUserDueDate)();\n  const priority = (0,_dom_module__WEBPACK_IMPORTED_MODULE_1__.getUserPriority)();\n  // This creates an object with the user data\n  const newObj = new _application_module__WEBPACK_IMPORTED_MODULE_0__.ToDoCreate(title, description, dueDate, priority);\n  console.log(newObj);\n\n  // Next I need to add this object to the projectOne array\n  projectOne.push(newObj);\n  console.log(projectOne);\n\n  // This creates the HTML for each To Do item\n  let newCard = (0,_dom_module__WEBPACK_IMPORTED_MODULE_1__.createTodoCards)();\n\n  // Then call a SEPARATE function (in a different module) that displays the projectOne array in the DOM\n  newCard.textContent = JSON.stringify(newObj);\n});\n\n\n//# sourceURL=webpack://todo-list/./src/index.js?");
 
 /***/ })
 
