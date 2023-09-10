@@ -1,7 +1,14 @@
+body {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
 form {
   display: flex;
   flex-direction: column;
-  width: 50%;
-  margin: auto;
+  width: 20%;
+  margin: 100px auto 0;
   gap: 20px;
+  /* background-color: pink; */
+  padding: 16px;
 }

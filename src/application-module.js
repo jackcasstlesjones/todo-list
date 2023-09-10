@@ -1,3 +1,12 @@
+import {
+  getUserTitle,
+  getUserDescription,
+  getUserDueDate,
+  getUserPriority,
+} from "./dom-module";
+
+const projectOne = [];
+
 class ToDoCreate {
   constructor(title, description, dueDate, priority) {
     this.title = title;
@@ -5,15 +14,16 @@ class ToDoCreate {
     this.dueDate = dueDate;
     this.priority = priority;
   }
-
-  returnToDo() {
-    return console.log(
-      this.title,
-      this.description,
-      this.dueDate,
-      this.priority
-    );
-  }
 }
 
-export { ToDoCreate };
+function addToProject() {
+  const title = getUserTitle();
+  const description = getUserDescription();
+  const dueDate = getUserDueDate();
+  const priority = getUserPriority();
+  const newObj = new ToDoCreate(title, description, dueDate, priority);
+  projectOne.push(newObj);
+  console.log(projectOne);
+}
+
+export { addToProject, projectOne };
