@@ -1,10 +1,10 @@
 /* 
 Colors:
-8ECAE6
-219EBC
-023047
-FFB703
-FB8500
+#8ECAE6
+#219EBC
+#023047
+#FFB703
+#FB8500
 */
 
 body {
@@ -24,7 +24,20 @@ form {
 
 .to-do-card {
   background-color: #ffb703;
-  padding: 10px;
-  width: 30%;
+  padding: 20px;
+  width: 50%;
   margin: 20px auto;
+}
+
+ul {
+  display: flex;
+  align-items: center;
+}
+
+.remove-button {
+  border: none;
+  font-size: 16px;
+  padding: 10px;
+  background-color: #8ecae6;
+  margin-left: auto;
 }

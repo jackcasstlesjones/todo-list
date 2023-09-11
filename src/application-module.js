@@ -23,7 +23,6 @@ function addToProject() {
   const priority = getUserPriority();
   const newObj = new ToDoCreate(title, description, dueDate, priority);
   projectOne.push(newObj);
-  console.log(projectOne);
 }
 
 export { addToProject, projectOne };
