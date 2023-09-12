@@ -1,4 +1,8 @@
-import { projectOne, addToProject } from "./application-module";
+import {
+  projectOne,
+  createToDoObject,
+  pushToProject,
+} from "./application-module";
 
 const userTitle = document.getElementById("title");
 const userDescription = document.getElementById("description");
@@ -9,17 +13,9 @@ const contentDiv = document.getElementById("content");
 // NEED TO FIGURE OUT WHY THIS DOESN'T WORK WITHOUT RETURNING newToDo ******************
 function createTodoCards() {
   const content = document.getElementById("content");
-  const newTodo = document.createElement("ul");
-  const titleField = document.createElement("li");
-  const descriptionField = document.createElement("li");
-  const dueDateField = document.createElement("li");
-  const priorityField = document.createElement("li");
+  const newTodo = document.createElement("p");
 
   content.appendChild(newTodo);
-  newTodo.appendChild(titleField);
-  newTodo.appendChild(descriptionField);
-  newTodo.appendChild(dueDateField);
-  newTodo.appendChild(priorityField);
 
   return newTodo;
 }
@@ -53,22 +49,43 @@ function createRemoveButton(element) {
   element.appendChild(newBtn);
 }
 
-function addDatasetIndex(element) {
-  let newObj = addToProject();
-  element.dataset.index = projectOne.indexOf(newObj);
-  console.log(element.dataset.index);
+// function addDatasetIndex(element) {
+//   let newObj = addToProject();
+//   element.dataset.index = projectOne.indexOf(newObj);
+//   console.log(element.dataset.index);
+// }
+
+function resetHTML() {
+  contentDiv.innerHTML = "";
 }
 
 // Resets the Content Div and loops through projectOne array, displaying each object as a string template literal
 function displayProject() {
-  contentDiv.innerHTML = "";
+  console.log("boom");
+  resetHTML();
+  const newToDo = createToDoObject();
+  pushToProject(newToDo);
   projectOne.forEach(function (project) {
     const newCard = createTodoCards();
     newCard.classList.add("to-do-card");
     newCard.textContent = `Title: ${project.title} Description: ${project.description} Due Date: ${project.dueDate} Priority: ${project.priority}`;
-    createRemoveButton(newCard);
 
-    console.log(projectOne);
+    newCard.dataset.index = projectOne.indexOf(newToDo);
+    const newCardIndex = newCard.dataset.index;
+    console.log(newCard.dataset.index);
+
+    const newBtn = document.createElement("button");
+    newBtn.textContent = "Remove";
+    newBtn.classList.add("remove-button");
+    addRemoveFunction(newBtn);
+    newCard.appendChild(newBtn);
+
+    newBtn.addEventListener("click", function () {
+      // console.log("hello");
+      projectOne.splice(newCardIndex, 1);
+      console.log(newCardIndex);
+      displayProject();
+    });
   });
 }
 

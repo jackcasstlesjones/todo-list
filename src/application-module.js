@@ -17,14 +17,17 @@ class ToDoCreate {
   }
 }
 
-function addToProject() {
+function createToDoObject() {
   const title = getUserTitle();
   const description = getUserDescription();
   const dueDate = getUserDueDate();
   const priority = getUserPriority();
   const newObj = new ToDoCreate(title, description, dueDate, priority);
-  projectOne.push(newObj);
   return newObj;
 }
 
-export { addToProject, projectOne };
+function pushToProject(object) {
+  projectOne.push(object);
+}
+
+export { createToDoObject, pushToProject, projectOne };

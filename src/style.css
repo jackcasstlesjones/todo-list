@@ -27,9 +27,6 @@ form {
   padding: 20px;
   width: 50%;
   margin: 20px auto;
-}
-
-ul {
   display: flex;
   align-items: center;
 }
