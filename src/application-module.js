@@ -3,6 +3,7 @@ import {
   getUserDescription,
   getUserDueDate,
   getUserPriority,
+  createTodoCards,
 } from "./dom-module";
 
 const projectOne = [];
@@ -23,6 +24,7 @@ function addToProject() {
   const priority = getUserPriority();
   const newObj = new ToDoCreate(title, description, dueDate, priority);
   projectOne.push(newObj);
+  return newObj;
 }
 
 export { addToProject, projectOne };

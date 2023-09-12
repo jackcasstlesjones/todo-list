@@ -1,4 +1,4 @@
-import { projectOne } from "./application-module";
+import { projectOne, addToProject } from "./application-module";
 
 const userTitle = document.getElementById("title");
 const userDescription = document.getElementById("description");
@@ -40,13 +40,12 @@ function getUserPriority() {
 function addRemoveFunction(element) {
   element.addEventListener("click", function () {
     projectOne.forEach(function (number) {
-      console.log(number);
+      // console.log(number);
     });
   });
 }
 
 function createRemoveButton(element) {
-  console.log("I'm making a button");
   const newBtn = document.createElement("button");
   newBtn.textContent = "Remove";
   newBtn.classList.add("remove-button");
@@ -54,14 +53,22 @@ function createRemoveButton(element) {
   element.appendChild(newBtn);
 }
 
+function addDatasetIndex(element) {
+  let newObj = addToProject();
+  element.dataset.index = projectOne.indexOf(newObj);
+  console.log(element.dataset.index);
+}
+
 // Resets the Content Div and loops through projectOne array, displaying each object as a string template literal
 function displayProject() {
   contentDiv.innerHTML = "";
-  return projectOne.forEach(function (project) {
+  projectOne.forEach(function (project) {
     const newCard = createTodoCards();
     newCard.classList.add("to-do-card");
     newCard.textContent = `Title: ${project.title} Description: ${project.description} Due Date: ${project.dueDate} Priority: ${project.priority}`;
     createRemoveButton(newCard);
+
+    console.log(projectOne);
   });
 }
 
