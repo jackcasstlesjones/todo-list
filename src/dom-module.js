@@ -61,6 +61,8 @@ function createRemoveButton(element) {
 }
 
 // Add a data-index to a HTML element based on it's position in projectOne
+
+//******** JUST NEED TO MAKE THE CONNECTION BETWEEN THE OBJECTS IN PROJECTONE AND THE ELEMENTS 'NEWCARD' !!!! ******************** */
 function addDatasetIndex(element, object) {
   element.dataset.index = projectOne.indexOf(object);
   return element.dataset.index;
