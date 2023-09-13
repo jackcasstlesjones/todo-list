@@ -1,5 +1,6 @@
 import { projectOne, addToProject } from "./application-module";
 
+// HTML input elements
 const userTitle = document.getElementById("title");
 const userDescription = document.getElementById("description");
 const userDueDate = document.getElementById("due-date");
@@ -24,6 +25,7 @@ function createTodoCards() {
   return newTodo;
 }
 
+///////// Get user inputs /////////
 function getUserTitle() {
   return userTitle.value;
 }
@@ -36,39 +38,44 @@ function getUserDueDate() {
 function getUserPriority() {
   return userPriority.value;
 }
+////////////////////////////////////
 
-function addRemoveFunction(element) {
+// Functionality for the remove button to splice from the projectOne index
+function addRemoveFunction(element, index) {
   element.addEventListener("click", function () {
-    projectOne.forEach(function (number) {
-      // console.log(number);
-    });
+    console.log("poop");
+    console.log(index);
+    projectOne.splice(index, 1);
+    renderProject();
   });
 }
 
+// Create a HTML remove button
 function createRemoveButton(element) {
   const newBtn = document.createElement("button");
   newBtn.textContent = "Remove";
   newBtn.classList.add("remove-button");
   addRemoveFunction(newBtn);
   element.appendChild(newBtn);
+  return newBtn;
 }
 
-function addDatasetIndex(element) {
-  let newObj = addToProject();
-  element.dataset.index = projectOne.indexOf(newObj);
-  console.log(element.dataset.index);
+// Add a data-index to a HTML element based on it's position in projectOne
+function addDatasetIndex(element, object) {
+  element.dataset.index = projectOne.indexOf(object);
+  return element.dataset.index;
 }
 
-// Resets the Content Div and loops through projectOne array, displaying each object as a string template literal
-function displayProject() {
+// WRITE A NEW RENDER FUNCTION
+
+function renderProject() {
   contentDiv.innerHTML = "";
-  projectOne.forEach(function (project) {
+  projectOne.forEach(function (arrayElement) {
     const newCard = createTodoCards();
     newCard.classList.add("to-do-card");
-    newCard.textContent = `Title: ${project.title} Description: ${project.description} Due Date: ${project.dueDate} Priority: ${project.priority}`;
-    createRemoveButton(newCard);
-
-    console.log(projectOne);
+    newCard.textContent = `Title: ${arrayElement.title} Description: ${arrayElement.description} Due Date: ${arrayElement.dueDate} Priority: ${arrayElement.priority}`;
+    const removeBtn = createRemoveButton(newCard);
+    addRemoveFunction(removeBtn);
   });
 }
 
@@ -78,5 +85,6 @@ export {
   getUserDueDate,
   getUserPriority,
   createTodoCards,
-  displayProject,
+  // displayProject,
+  renderProject,
 };
