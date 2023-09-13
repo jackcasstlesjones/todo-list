@@ -77,7 +77,6 @@ function renderProject() {
     newCard.classList.add("to-do-card");
     newCard.textContent = `Title: ${arrayElement.title} Description: ${arrayElement.description} Due Date: ${arrayElement.dueDate} Priority: ${arrayElement.priority}`;
     const removeBtn = createRemoveButton(newCard);
-    addRemoveFunction(removeBtn);
   });
 }
 
