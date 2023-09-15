@@ -28,6 +28,10 @@ class CreateProject {
     bigProjectsArray.push(this);
   }
 
+  pushToOwnArray(whatever) {
+    this.projectArray.push(whatever);
+  }
+
   returnProject() {
     return this.projectArray;
   }
@@ -35,7 +39,6 @@ class CreateProject {
 
 const defaultProject = new CreateProject("Coding");
 defaultProject.pushToBigProjectsArray();
-console.log(bigProjectsArray);
 const secondProject = new CreateProject("Dancing");
 const defaultArray = defaultProject.returnProject();
 const secondArray = secondProject.returnProject();
@@ -70,42 +73,40 @@ function createEventListener() {
   submitDefaultBtn.addEventListener("click", function (e) {
     e.preventDefault();
     pushToProject(defaultArray);
+
     renderProject(defaultArray, "#4361ee");
-
-    console.log(bigProjectsArray);
   });
 }
 
-function createEventListenerSecond() {
-  const submitSecondBtn = document.getElementById("submit-to-second");
-  submitSecondBtn.addEventListener("click", function (e) {
-    e.preventDefault();
-    pushToProject(secondArray);
-    renderProject(secondArray, "#f72585");
+// function createEventListenerSecond() {
+//   const submitSecondBtn = document.getElementById("submit-to-second");
+//   submitSecondBtn.addEventListener("click", function (e) {
+//     e.preventDefault();
+//     pushToProject(secondArray);
+//     renderProject(secondArray, "#f72585");
 
-    console.log(bigProjectsArray);
-  });
-}
+//     console.log(bigProjectsArray);
+//   });
+// }
 
-const defaultBtn = document.getElementById("default-button");
-const secondBtn = document.getElementById("second-button");
+// const defaultBtn = document.getElementById("default-button");
+// // const secondBtn = document.getElementById("second-button");
 
-defaultBtn.addEventListener("click", function () {
-  defaultProject.pushToBigProjectsArray();
-  renderProject(defaultArray, "#4361ee");
-});
+// defaultBtn.addEventListener("click", function () {
+//   defaultProject.pushToBigProjectsArray();
+//   renderProject(defaultArray, "#4361ee");
+// });
 
-secondBtn.addEventListener("click", function () {
-  secondProject.pushToBigProjectsArray();
-  renderProject(secondArray, "#f72585");
-});
+// secondBtn.addEventListener("click", function () {
+//   secondProject.pushToBigProjectsArray();
+//   renderProject(secondArray, "#f72585");
+// });
 
 const createProjectBtn = document.getElementById("create-project");
 createProjectBtn.addEventListener("click", function () {
-  const newProjectObj = new CreateProject("Housework");
-  console.log(newProjectObj);
+  const projectName = prompt("What would you like your project to be called?");
+  const newProjectObj = new CreateProject(projectName);
   newProjectObj.pushToBigProjectsArray();
-  console.log(bigProjectsArray);
   renderBigProjectsArray();
 });
 
@@ -115,6 +116,5 @@ export {
   addRemoveFunction,
   defaultArray,
   createEventListener,
-  createEventListenerSecond,
   bigProjectsArray,
 };

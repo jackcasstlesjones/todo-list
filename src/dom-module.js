@@ -65,13 +65,15 @@ function createProjectElement() {
 }
 
 function renderBigProjectsArray() {
-  console.log("i am being rendered");
   bigProjectsContainer.innerHTML = "";
 
   bigProjectsArray.forEach(function (arrayElement) {
     const newProjectElement = createProjectElement();
     newProjectElement.classList.add("project-button");
     newProjectElement.textContent = arrayElement.name;
+    newProjectElement.addEventListener("click", function () {
+      renderProject(arrayElement.projectArray, "red");
+    });
     bigProjectsContainer.appendChild(newProjectElement);
   });
 }
