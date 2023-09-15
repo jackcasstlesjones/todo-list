@@ -102,4 +102,5 @@ export {
   defaultArray,
   createEventListener,
   createEventListenerSecond,
+  bigProjectsArray,
 };

@@ -1,4 +1,4 @@
-import { addRemoveFunction, defaultArray } from "./application-module";
+import { addRemoveFunction, bigProjectsArray } from "./application-module";
 
 // HTML input elements
 const userTitle = document.getElementById("title");
@@ -7,10 +7,12 @@ const userDueDate = document.getElementById("due-date");
 const userPriority = document.getElementById("priority");
 const contentDiv = document.getElementById("content");
 
+const bigProjectsContainer = document.getElementById("projects-container");
+
 // NEED TO FIGURE OUT WHY THIS DOESN'T WORK WITHOUT RETURNING newToDo ******************
 function createTodoCards() {
   const content = document.getElementById("content");
-  const newTodo = document.createElement("ul");
+  const newTodo = document.createElement("p");
 
   content.appendChild(newTodo);
 
@@ -56,6 +58,12 @@ function renderProject(projectArray) {
     newToDoElement.dataset.index = projectArray.indexOf(arrayElement);
     addRemoveFunction(removeBtn, newToDoElement.dataset.index, projectArray);
   });
+}
+
+function renderBigProjectsArray() {
+  bigProjectsContainer.innerHTML = "";
+
+  bigProjectsArray.forEach(function (arrayElement) {});
 }
 
 export {
