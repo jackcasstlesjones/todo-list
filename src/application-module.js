@@ -3,7 +3,7 @@ import {
   getUserDescription,
   getUserDueDate,
   getUserPriority,
-  createTodoCards,
+  renderProject,
 } from "./dom-module";
 
 const projectOne = [];
@@ -32,6 +32,12 @@ function pushToProject() {
   return newObj;
 }
 
-function getIndexOfObject() {}
+// Functionality for the remove button to splice from the projectOne index
+function addRemoveFunction(element, index) {
+  element.addEventListener("click", function () {
+    projectOne.splice(index, 1);
+    renderProject();
+  });
+}
 
-export { createObject, pushToProject, projectOne };
+export { createObject, pushToProject, projectOne, addRemoveFunction };
