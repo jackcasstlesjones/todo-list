@@ -25,16 +25,17 @@ class CreateProject {
   }
 
   pushToBigProjectsArray() {
-    bigProjectsArray.push(this.projectArray);
+    bigProjectsArray.push(this);
   }
 
   returnProject() {
-    console.log(bigProjectsArray);
     return this.projectArray;
   }
 }
 
 const defaultProject = new CreateProject("Coding");
+defaultProject.pushToBigProjectsArray();
+console.log(bigProjectsArray);
 const secondProject = new CreateProject("Dancing");
 const defaultArray = defaultProject.returnProject();
 const secondArray = secondProject.returnProject();
@@ -70,8 +71,6 @@ function createEventListener() {
     e.preventDefault();
     pushToProject(defaultArray);
     renderProject(defaultArray, "#4361ee");
-    defaultProject.pushToBigProjectsArray();
-    // renderBigProjectsArray();
 
     console.log(bigProjectsArray);
   });
@@ -83,9 +82,7 @@ function createEventListenerSecond() {
     e.preventDefault();
     pushToProject(secondArray);
     renderProject(secondArray, "#f72585");
-    secondProject.pushToBigProjectsArray();
 
-    // renderBigProjectsArray();
     console.log(bigProjectsArray);
   });
 }
@@ -101,6 +98,15 @@ defaultBtn.addEventListener("click", function () {
 secondBtn.addEventListener("click", function () {
   secondProject.pushToBigProjectsArray();
   renderProject(secondArray, "#f72585");
+});
+
+const createProjectBtn = document.getElementById("create-project");
+createProjectBtn.addEventListener("click", function () {
+  const newProjectObj = new CreateProject("Housework");
+  console.log(newProjectObj);
+  newProjectObj.pushToBigProjectsArray();
+  console.log(bigProjectsArray);
+  renderBigProjectsArray();
 });
 
 export {
