@@ -79,3 +79,11 @@ function addRemoveFunction(element, index) {
 }
 
 export { createObject, pushToProject, projectOne, addRemoveFunction };
+
+function consolelog() {
+  if (1 > 0) {
+    console.log(
+      ";kasas;dkfjasdjfbhasdnfbadskjbfapeifbqpwieubfpqweiufbpeiqabvapsdibfaipbfapidgvpqiabgpiu"
+    );
+  }
+}
