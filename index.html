@@ -10,19 +10,15 @@
     <header>TO DO LIST</header>
     <main>
       <nav>
-        <div class="project-buttons-container">
-          <button id="default-button">Default</button>
-          <button id="second-button">Second</button>
-        </div>
         <form action="">
-          <label class="form-element" for="title">Title</label>
+          <label for="title">Title</label>
           <input
             class="form-element text-input"
             type="text"
             name="title"
             id="title"
           />
-          <label class="form-element" for="description">Description</label>
+          <label for="description">Description</label>
           <input
             class="form-element text-input"
             type="text"
@@ -30,8 +26,13 @@
             id="description"
           />
           <label for="due-date">Due Date</label>
-          <input type="date" name="due-date" id="due-date" />
-          <label class="form-element" for="priority">Priority</label>
+          <input
+            class="due-date-field"
+            type="date"
+            name="due-date"
+            id="due-date"
+          />
+          <label for="priority">Priority</label>
           <select class="form-element" name="priority" id="priority">
             <option value="High">High</option>
             <option value="Medium">Medium</option>
@@ -44,6 +45,11 @@
             Create To-Do in Second Project
           </button>
         </form>
+        <div class="project-buttons-container">
+          <button id="default-button">Default Project</button>
+          <button id="second-button">Second Project</button>
+        </div>
+        <div class="projects-container" id="projects-container"></div>
       </nav>
       <div id="content" class="content"></div>
     </main>
