@@ -1,4 +1,9 @@
-import { addRemoveFunction, bigProjectsArray } from "./application-module";
+import {
+  addRemoveFunction,
+  bigProjectsArray,
+  createEventListener,
+  currentArray,
+} from "./application-module";
 
 // HTML input elements
 const userTitle = document.getElementById("title");
@@ -8,6 +13,8 @@ const userPriority = document.getElementById("priority");
 const contentDiv = document.getElementById("content");
 
 const bigProjectsContainer = document.getElementById("projects-container");
+
+const projectHeader = document.getElementById("project-header");
 
 // Create a ToDo Element
 function createTodoCards() {
@@ -44,6 +51,12 @@ function createRemoveButton(element) {
 
 // WRITE A NEW RENDER FUNCTION
 
+function renderProjectHeader(projectName) {
+  const projectHeader = document.createElement("h2");
+  projectHeader.textContent = projectName;
+  contentDiv.appendChild(projectHeader);
+}
+
 function renderProject(projectArray, colour) {
   contentDiv.innerHTML = "";
 
@@ -68,12 +81,20 @@ function renderBigProjectsArray() {
   bigProjectsContainer.innerHTML = "";
 
   bigProjectsArray.forEach(function (arrayElement) {
+    // Create project element and add classes + display the name of the project element (which is inside the big project)
     const newProjectElement = createProjectElement();
     newProjectElement.classList.add("project-button");
     newProjectElement.textContent = arrayElement.name;
+
+    // Add an event listener to each project element to render that project inside the big project array
     newProjectElement.addEventListener("click", function () {
-      renderProject(arrayElement.projectArray, "red");
+      // Render the current array elements project array
+
+      renderProject(arrayElement.projectArray, "red", arrayElement.name);
+      renderProjectHeader(arrayElement.name);
     });
+
+    // Add each project element to the big projects container
     bigProjectsContainer.appendChild(newProjectElement);
   });
 }

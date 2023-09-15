@@ -9,6 +9,8 @@ import {
 
 const bigProjectsArray = [];
 
+let currentArray = "";
+
 class ToDoCreate {
   constructor(title, description, dueDate, priority) {
     this.title = title;
@@ -39,9 +41,8 @@ class CreateProject {
 
 const defaultProject = new CreateProject("Coding");
 defaultProject.pushToBigProjectsArray();
-const secondProject = new CreateProject("Dancing");
 const defaultArray = defaultProject.returnProject();
-const secondArray = secondProject.returnProject();
+console.log(defaultArray);
 
 function createObject() {
   const title = getUserTitle();
@@ -68,39 +69,19 @@ function addRemoveFunction(element, index, projectArray) {
 
 ///////////////////////////// EVENT LISTENERS ///////////////////////
 
-function createEventListener() {
+function createEventListener(array) {
   const submitDefaultBtn = document.getElementById("submit-to-default");
   submitDefaultBtn.addEventListener("click", function (e) {
+    console.log(array);
     e.preventDefault();
-    pushToProject(defaultArray);
-
-    renderProject(defaultArray, "#4361ee");
+    pushToProject(array);
+    renderProject(array, "orange");
   });
 }
 
-// function createEventListenerSecond() {
-//   const submitSecondBtn = document.getElementById("submit-to-second");
-//   submitSecondBtn.addEventListener("click", function (e) {
-//     e.preventDefault();
-//     pushToProject(secondArray);
-//     renderProject(secondArray, "#f72585");
-
-//     console.log(bigProjectsArray);
-//   });
-// }
-
-// const defaultBtn = document.getElementById("default-button");
-// // const secondBtn = document.getElementById("second-button");
-
-// defaultBtn.addEventListener("click", function () {
-//   defaultProject.pushToBigProjectsArray();
-//   renderProject(defaultArray, "#4361ee");
-// });
-
-// secondBtn.addEventListener("click", function () {
-//   secondProject.pushToBigProjectsArray();
-//   renderProject(secondArray, "#f72585");
-// });
+function removeEventListener(element) {
+  element.removeEventListener;
+}
 
 const createProjectBtn = document.getElementById("create-project");
 createProjectBtn.addEventListener("click", function () {
@@ -117,4 +98,5 @@ export {
   defaultArray,
   createEventListener,
   bigProjectsArray,
+  currentArray,
 };

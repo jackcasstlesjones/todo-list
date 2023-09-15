@@ -1,8 +1,8 @@
-import { createEventListener } from "./application-module";
+import { createEventListener, defaultArray } from "./application-module";
 
 import { renderBigProjectsArray } from "./dom-module";
 
-createEventListener();
+createEventListener(defaultArray);
 
 renderBigProjectsArray();
 
