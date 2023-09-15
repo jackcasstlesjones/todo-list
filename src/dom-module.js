@@ -1,4 +1,4 @@
-import { projectOne, addToProject } from "./application-module";
+import { projectOne, createObject, pushToProject } from "./application-module";
 
 // HTML input elements
 const userTitle = document.getElementById("title");
@@ -11,16 +11,8 @@ const contentDiv = document.getElementById("content");
 function createTodoCards() {
   const content = document.getElementById("content");
   const newTodo = document.createElement("ul");
-  const titleField = document.createElement("li");
-  const descriptionField = document.createElement("li");
-  const dueDateField = document.createElement("li");
-  const priorityField = document.createElement("li");
 
   content.appendChild(newTodo);
-  newTodo.appendChild(titleField);
-  newTodo.appendChild(descriptionField);
-  newTodo.appendChild(dueDateField);
-  newTodo.appendChild(priorityField);
 
   return newTodo;
 }
@@ -40,22 +32,11 @@ function getUserPriority() {
 }
 ////////////////////////////////////
 
-// Functionality for the remove button to splice from the projectOne index
-function addRemoveFunction(element, index) {
-  element.addEventListener("click", function () {
-    console.log("poop");
-    console.log(index);
-    projectOne.splice(index, 1);
-    renderProject();
-  });
-}
-
 // Create a HTML remove button
 function createRemoveButton(element) {
   const newBtn = document.createElement("button");
   newBtn.textContent = "Remove";
   newBtn.classList.add("remove-button");
-  addRemoveFunction(newBtn);
   element.appendChild(newBtn);
   return newBtn;
 }
@@ -72,11 +53,23 @@ function addDatasetIndex(element, object) {
 
 function renderProject() {
   contentDiv.innerHTML = "";
+
   projectOne.forEach(function (arrayElement) {
-    const newCard = createTodoCards();
-    newCard.classList.add("to-do-card");
-    newCard.textContent = `Title: ${arrayElement.title} Description: ${arrayElement.description} Due Date: ${arrayElement.dueDate} Priority: ${arrayElement.priority}`;
-    const removeBtn = createRemoveButton(newCard);
+    const newToDoElement = createTodoCards();
+    newToDoElement.classList.add("to-do-card");
+    newToDoElement.textContent = `Title: ${arrayElement.title} Description: ${arrayElement.description} Due Date: ${arrayElement.dueDate} Priority: ${arrayElement.priority}`;
+    const removeBtn = createRemoveButton(newToDoElement);
+    newToDoElement.dataset.index = projectOne.indexOf(arrayElement);
+    addRemoveFunction(newToDoElement, newToDoElement.dataset.index);
+  });
+}
+
+// Functionality for the remove button to splice from the projectOne index
+function addRemoveFunction(element, index) {
+  element.addEventListener("click", function () {
+    console.log(index);
+    projectOne.splice(index, 1);
+    renderProject();
   });
 }
 
@@ -89,3 +82,8 @@ export {
   // displayProject,
   renderProject,
 };
+
+/*
+
+
+*/
