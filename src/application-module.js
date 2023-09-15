@@ -4,6 +4,7 @@ import {
   getUserDueDate,
   getUserPriority,
   renderProject,
+  renderBigProjectsArray,
 } from "./dom-module";
 
 const bigProjectsArray = [];
@@ -34,7 +35,6 @@ class CreateProject {
 }
 
 const defaultProject = new CreateProject("Coding");
-defaultProject.pushToBigProjectsArray();
 const secondProject = new CreateProject("Dancing");
 const defaultArray = defaultProject.returnProject();
 const secondArray = secondProject.returnProject();
@@ -69,7 +69,10 @@ function createEventListener() {
   submitDefaultBtn.addEventListener("click", function (e) {
     e.preventDefault();
     pushToProject(defaultArray);
-    renderProject(defaultArray);
+    renderProject(defaultArray, "#4361ee");
+    defaultProject.pushToBigProjectsArray();
+    // renderBigProjectsArray();
+
     console.log(bigProjectsArray);
   });
 }
@@ -79,7 +82,10 @@ function createEventListenerSecond() {
   submitSecondBtn.addEventListener("click", function (e) {
     e.preventDefault();
     pushToProject(secondArray);
-    renderProject(secondArray);
+    renderProject(secondArray, "#f72585");
+    secondProject.pushToBigProjectsArray();
+
+    // renderBigProjectsArray();
     console.log(bigProjectsArray);
   });
 }
@@ -88,11 +94,13 @@ const defaultBtn = document.getElementById("default-button");
 const secondBtn = document.getElementById("second-button");
 
 defaultBtn.addEventListener("click", function () {
-  renderProject(defaultArray);
+  defaultProject.pushToBigProjectsArray();
+  renderProject(defaultArray, "#4361ee");
 });
 
 secondBtn.addEventListener("click", function () {
-  renderProject(secondArray);
+  secondProject.pushToBigProjectsArray();
+  renderProject(secondArray, "#f72585");
 });
 
 export {

@@ -9,13 +9,10 @@ const contentDiv = document.getElementById("content");
 
 const bigProjectsContainer = document.getElementById("projects-container");
 
-// NEED TO FIGURE OUT WHY THIS DOESN'T WORK WITHOUT RETURNING newToDo ******************
+// Create a ToDo Element
 function createTodoCards() {
-  const content = document.getElementById("content");
   const newTodo = document.createElement("p");
-
   content.appendChild(newTodo);
-
   return newTodo;
 }
 
@@ -47,12 +44,13 @@ function createRemoveButton(element) {
 
 // WRITE A NEW RENDER FUNCTION
 
-function renderProject(projectArray) {
+function renderProject(projectArray, colour) {
   contentDiv.innerHTML = "";
 
   projectArray.forEach(function (arrayElement) {
     const newToDoElement = createTodoCards();
     newToDoElement.classList.add("to-do-card");
+    newToDoElement.style.backgroundColor = `${colour}`;
     newToDoElement.textContent = `Title: ${arrayElement.title} Description: ${arrayElement.description} Due Date: ${arrayElement.dueDate} Priority: ${arrayElement.priority}`;
     const removeBtn = createRemoveButton(newToDoElement);
     newToDoElement.dataset.index = projectArray.indexOf(arrayElement);
@@ -60,10 +58,20 @@ function renderProject(projectArray) {
   });
 }
 
+function createProjectElement() {
+  const projectButton = document.createElement("button");
+  bigProjectsContainer.appendChild(projectButton);
+  return projectButton;
+}
+
 function renderBigProjectsArray() {
   bigProjectsContainer.innerHTML = "";
 
-  bigProjectsArray.forEach(function (arrayElement) {});
+  bigProjectsArray.forEach(function (arrayElement) {
+    const newProjectElement = createProjectElement();
+    newProjectElement.classList.add("project-button");
+    newProjectElement.textContent = arrayElement;
+  });
 }
 
 export {
@@ -73,6 +81,7 @@ export {
   getUserPriority,
   createTodoCards,
   renderProject,
+  renderBigProjectsArray,
 };
 
 /*
