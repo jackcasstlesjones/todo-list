@@ -1,10 +1,10 @@
 /* 
 Colors:
-#8ECAE6
-#219EBC
-#023047
-#FFB703
-#FB8500
+#f72585
+#7209b7
+#3a0ca3
+#4361ee
+#4cc9f0
 */
 
 html {
@@ -53,16 +53,44 @@ body {
 main {
   display: flex;
   width: 100%;
+  background-color: whitesmoke;
 }
 
 nav {
-  width: 20%;
+  width: 25%;
   display: flex;
   flex-direction: column;
   gap: 52px;
-  background-color: #fb8500;
-  padding: 16px;
   height: 100vh;
+
+  /* ********************* */
+  background: hsla(333, 93%, 56%, 1);
+
+  background: linear-gradient(
+    135deg,
+    hsla(333, 93%, 56%, 1) 0%,
+    hsla(258, 86%, 34%, 1) 100%
+  );
+
+  background: -moz-linear-gradient(
+    135deg,
+    hsla(333, 93%, 56%, 1) 0%,
+    hsla(258, 86%, 34%, 1) 100%
+  );
+
+  background: -webkit-linear-gradient(
+    135deg,
+    hsla(333, 93%, 56%, 1) 0%,
+    hsla(258, 86%, 34%, 1) 100%
+  );
+
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#F72585", endColorstr="#3A0CA3", GradientType=1 );
+}
+
+.project-buttons-container {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 20px;
 }
 
 .content {
@@ -77,13 +105,47 @@ form {
   display: flex;
   gap: 20px;
   flex-direction: column;
+  align-items: center;
+}
+
+label {
+  font-size: 1.2rem;
+  color: white;
+}
+
+.form-element {
+  width: 80%;
+  border-radius: 10px;
+  box-shadow: none;
+  border: none;
+}
+
+.text-input {
+  font-size: 1.2rem;
+  padding: 8px;
+}
+
+select {
+  font-size: 1.2rem;
+  padding: 8px;
+}
+
+button {
+  font-size: 1.2rem;
+  background-color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
 }
 
 .to-do-card {
-  background-color: #ffb703;
+  background-color: #4361ee;
   padding: 20px;
   width: 100%;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
 }
 
 ul {
@@ -96,6 +158,8 @@ ul {
   border: none;
   font-size: 16px;
   padding: 10px;
-  background-color: #8ecae6;
+  background-color: #3a0ca3;
+  color: white;
+
   margin-left: auto;
 }
