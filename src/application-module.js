@@ -17,6 +17,21 @@ class ToDoCreate {
   }
 }
 
+class CreateProject {
+  constructor(name) {
+    this.name = name;
+    this.projectArray = [];
+  }
+}
+
+const defaultProject = new CreateProject("Coding");
+console.log(defaultProject);
+
+defaultProject.projectArray.push("poo");
+console.log(defaultProject.projectArray);
+
+renderProject(defaultProject.projectArray);
+
 function createObject() {
   const title = getUserTitle();
   const description = getUserDescription();
