@@ -6,7 +6,7 @@ import {
   renderProject,
 } from "./dom-module";
 
-const projectOne = [];
+const bigProjectsArray = [];
 
 class ToDoCreate {
   constructor(title, description, dueDate, priority) {
@@ -22,15 +22,22 @@ class CreateProject {
     this.name = name;
     this.projectArray = [];
   }
+
+  pushToBigProjectsArray() {
+    bigProjectsArray.push(this.projectArray);
+  }
+
+  returnProject() {
+    console.log(bigProjectsArray);
+    return this.projectArray;
+  }
 }
 
 const defaultProject = new CreateProject("Coding");
-const defaultArray = defaultProject.projectArray;
-
-defaultArray.push("poo");
-console.log(defaultArray);
-
-renderProject(defaultArray);
+defaultProject.pushToBigProjectsArray();
+const secondProject = new CreateProject("Dancing");
+const defaultArray = defaultProject.returnProject();
+const secondArray = secondProject.returnProject();
 
 function createObject() {
   const title = getUserTitle();
@@ -41,76 +48,58 @@ function createObject() {
   return newObj;
 }
 
-function pushToProject() {
+function pushToProject(projectArray) {
   const newObj = createObject();
-  projectOne.push(newObj);
+  projectArray.push(newObj);
   return newObj;
 }
 
-// Functionality for the remove button to splice from the projectOne index
-function addRemoveFunction(element, index) {
+// Functionality for the remove button to splice from the project index
+function addRemoveFunction(element, index, projectArray) {
   element.addEventListener("click", function () {
-    projectOne.splice(index, 1);
-    renderProject(projectOne);
+    projectArray.splice(index, 1);
+    renderProject(projectArray);
   });
 }
 
-export { createObject, pushToProject, projectOne, addRemoveFunction };
+///////////////////////////// EVENT LISTENERS ///////////////////////
 
-/////////////////////////
-/////////////////////////
-/////////////////////////
-/////////////////////////
-/////////////////////////
-/////////////////////////
-/////////////////////////
-/////////////////////////
-/////////////////////////
-/////////////////////////
-/////////////////////////
-/////////////////////////
-/////////////////////////
-/////////////////////////
-/////////////////////////
-/////////////////////////
-/////////////////////////
-/////////////////////////
-/////////////////////////
-/////////////////////////
-/////////////////////////
-/////////////////////////
-/////////////////////////
-/////////////////////////
-/////////////////////////
-/////////////////////////
-/////////////////////////
-/////////////////////////
-/////////////////////////
-/////////////////////////
-/////////////////////////
-/////////////////////////
-/////////////////////////
-/////////////////////////
-/////////////////////////
-/////////////////////////
-/////////////////////////
-/////////////////////////
-/////////////////////////
-/////////////////////////
-/////////////////////////
-/////////////////////////
-/////////////////////////
-/////////////////////////
-/////////////////////////
-/////////////////////////
-/////////////////////////
-/////////////////////////
-/////////////////////////
-/////////////////////////
-/////////////////////////
-/////////////////////////
-/////////////////////////
-/////////////////////////
-/////////////////////////
+function createEventListener() {
+  const submitDefaultBtn = document.getElementById("submit-to-default");
+  submitDefaultBtn.addEventListener("click", function (e) {
+    e.preventDefault();
+    pushToProject(defaultArray);
+    renderProject(defaultArray);
+    console.log(bigProjectsArray);
+  });
+}
 
-console.log("asdfas;dfbaspidjfbsdapifbadspifbapsidfbaspidufbaspdfiub");
+function createEventListenerSecond() {
+  const submitSecondBtn = document.getElementById("submit-to-second");
+  submitSecondBtn.addEventListener("click", function (e) {
+    e.preventDefault();
+    pushToProject(secondArray);
+    renderProject(secondArray);
+    console.log(bigProjectsArray);
+  });
+}
+
+const defaultBtn = document.getElementById("default-button");
+const secondBtn = document.getElementById("second-button");
+
+defaultBtn.addEventListener("click", function () {
+  renderProject(defaultArray);
+});
+
+secondBtn.addEventListener("click", function () {
+  renderProject(secondArray);
+});
+
+export {
+  createObject,
+  pushToProject,
+  addRemoveFunction,
+  defaultArray,
+  createEventListener,
+  createEventListenerSecond,
+};

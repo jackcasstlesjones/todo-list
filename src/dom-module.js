@@ -1,4 +1,4 @@
-import { projectOne, addRemoveFunction } from "./application-module";
+import { addRemoveFunction, defaultArray } from "./application-module";
 
 // HTML input elements
 const userTitle = document.getElementById("title");
@@ -43,12 +43,6 @@ function createRemoveButton(element) {
 
 // Add a data-index to a HTML element based on it's position in projectOne
 
-//******** JUST NEED TO MAKE THE CONNECTION BETWEEN THE OBJECTS IN PROJECTONE AND THE ELEMENTS 'NEWCARD' !!!! ******************** */
-function addDatasetIndex(element, object) {
-  element.dataset.index = projectOne.indexOf(object);
-  return element.dataset.index;
-}
-
 // WRITE A NEW RENDER FUNCTION
 
 function renderProject(projectArray) {
@@ -59,8 +53,8 @@ function renderProject(projectArray) {
     newToDoElement.classList.add("to-do-card");
     newToDoElement.textContent = `Title: ${arrayElement.title} Description: ${arrayElement.description} Due Date: ${arrayElement.dueDate} Priority: ${arrayElement.priority}`;
     const removeBtn = createRemoveButton(newToDoElement);
-    newToDoElement.dataset.index = projectOne.indexOf(arrayElement);
-    addRemoveFunction(removeBtn, newToDoElement.dataset.index);
+    newToDoElement.dataset.index = projectArray.indexOf(arrayElement);
+    addRemoveFunction(removeBtn, newToDoElement.dataset.index, projectArray);
   });
 }
 

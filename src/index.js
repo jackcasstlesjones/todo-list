@@ -1,6 +1,9 @@
-import { ToDoCreate } from "./application-module";
-import { buttonEventListener } from "./event-listener";
+import {
+  createEventListener,
+  createEventListenerSecond,
+} from "./application-module";
 
-buttonEventListener();
+createEventListener();
+createEventListenerSecond();
 
 import "./style.css";

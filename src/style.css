@@ -7,33 +7,89 @@ Colors:
 #FB8500
 */
 
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* //////////////////////////////////////////////////////////////// */
+
 body {
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
-form {
-  position: absolute;
-  top: 20px;
-  left: 20px;
+main {
+  display: flex;
+  width: 100%;
+}
+
+nav {
+  width: 20%;
   display: flex;
   flex-direction: column;
-  width: 20%;
-  gap: 20px;
+  gap: 52px;
   background-color: #fb8500;
   padding: 16px;
+  height: 100vh;
+}
+
+.content {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  padding: 100px 150px;
+  gap: 32px;
+}
+
+form {
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
 }
 
 .to-do-card {
   background-color: #ffb703;
   padding: 20px;
-  width: 50%;
-  margin: 20px 400px;
+  width: 100%;
+  display: flex;
 }
 
 ul {
   display: flex;
   align-items: center;
+  border-radius: 10px;
 }
 
 .remove-button {
