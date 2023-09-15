@@ -51,10 +51,10 @@ function addDatasetIndex(element, object) {
 
 // WRITE A NEW RENDER FUNCTION
 
-function renderProject() {
+function renderProject(projectArray) {
   contentDiv.innerHTML = "";
 
-  projectOne.forEach(function (arrayElement) {
+  projectArray.forEach(function (arrayElement) {
     const newToDoElement = createTodoCards();
     newToDoElement.classList.add("to-do-card");
     newToDoElement.textContent = `Title: ${arrayElement.title} Description: ${arrayElement.description} Due Date: ${arrayElement.dueDate} Priority: ${arrayElement.priority}`;

@@ -1,6 +1,7 @@
 import {
   addToProject,
   createObject,
+  projectOne,
   pushToProject,
 } from "./application-module";
 import { displayProject, renderProject } from "./dom-module";
@@ -10,6 +11,6 @@ export function buttonEventListener() {
   submitBtn.addEventListener("click", function (e) {
     e.preventDefault();
     pushToProject();
-    renderProject();
+    renderProject(projectOne);
   });
 }
