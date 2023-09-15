@@ -7,21 +7,34 @@
     <script defer="defer" src="main.js"></script>
   </head>
   <body>
-    <div id="content"></div>
-    <form action="">
-      <label for="title">Title</label>
-      <input type="text" name="title" id="title" />
-      <label for="description">Description</label>
-      <input type="text" name="description" id="description" />
-      <label for="due-date">Due Date</label>
-      <input type="date" name="due-date" id="due-date" />
-      <label for="priority">Priority</label>
-      <select name="priority" id="priority">
-        <option value="High">High</option>
-        <option value="Medium">Medium</option>
-        <option value="Low">Low</option>
-      </select>
-      <button type="submit" id="submit">Create To-Do</button>
-    </form>
+    <main>
+      <nav>
+        <div class="project-buttons-container">
+          <button id="default-button">Default</button>
+          <button id="second-button">Second</button>
+        </div>
+        <form action="">
+          <label for="title">Title</label>
+          <input type="text" name="title" id="title" />
+          <label for="description">Description</label>
+          <input type="text" name="description" id="description" />
+          <label for="due-date">Due Date</label>
+          <input type="date" name="due-date" id="due-date" />
+          <label for="priority">Priority</label>
+          <select name="priority" id="priority">
+            <option value="High">High</option>
+            <option value="Medium">Medium</option>
+            <option value="Low">Low</option>
+          </select>
+          <button type="submit" id="submit-to-default">
+            Create To-Do in Default Project
+          </button>
+          <button type="submit" id="submit-to-second">
+            Create To-Do in Second Project
+          </button>
+        </form>
+      </nav>
+      <div id="content" class="content"></div>
+    </main>
   </body>
 </html>
