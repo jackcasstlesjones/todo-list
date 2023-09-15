@@ -25,12 +25,12 @@ class CreateProject {
 }
 
 const defaultProject = new CreateProject("Coding");
-console.log(defaultProject);
+const defaultArray = defaultProject.projectArray;
 
-defaultProject.projectArray.push("poo");
-console.log(defaultProject.projectArray);
+defaultArray.push("poo");
+console.log(defaultArray);
 
-renderProject(defaultProject.projectArray);
+renderProject(defaultArray);
 
 function createObject() {
   const title = getUserTitle();
@@ -51,7 +51,7 @@ function pushToProject() {
 function addRemoveFunction(element, index) {
   element.addEventListener("click", function () {
     projectOne.splice(index, 1);
-    renderProject();
+    renderProject(projectOne);
   });
 }
 
