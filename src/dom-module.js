@@ -2,7 +2,8 @@ import {
   addRemoveFunction,
   bigProjectsArray,
   createEventListener,
-  currentArray,
+  currentProject,
+  CreateProject,
 } from "./application-module";
 
 // HTML input elements
@@ -85,6 +86,7 @@ function renderBigProjectsArray() {
     const newProjectElement = createProjectElement();
     newProjectElement.classList.add("project-button");
     newProjectElement.textContent = arrayElement.name;
+    newProjectElement.setAttribute("id", arrayElement.name);
 
     // Add an event listener to each project element to render that project inside the big project array
     newProjectElement.addEventListener("click", function () {

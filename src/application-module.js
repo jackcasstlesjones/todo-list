@@ -9,7 +9,7 @@ import {
 
 const bigProjectsArray = [];
 
-let currentArray = "";
+let currentProject = "coding";
 
 class ToDoCreate {
   constructor(title, description, dueDate, priority) {
@@ -36,6 +36,10 @@ class CreateProject {
 
   returnProject() {
     return this.projectArray;
+  }
+
+  returnProjectName() {
+    return this.name;
   }
 }
 
@@ -98,5 +102,6 @@ export {
   defaultArray,
   createEventListener,
   bigProjectsArray,
-  currentArray,
+  currentProject,
+  CreateProject,
 };
