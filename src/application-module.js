@@ -73,9 +73,8 @@ function addRemoveFunction(element, index, projectArray) {
 
 ///////////////////////////// EVENT LISTENERS ///////////////////////
 
-function createEventListener(array) {
-  const submitDefaultBtn = document.getElementById("submit-to-default");
-  submitDefaultBtn.addEventListener("click", function (e) {
+function createEventListener(array, element) {
+  element.addEventListener("click", function (e) {
     console.log(array);
     e.preventDefault();
     pushToProject(array);

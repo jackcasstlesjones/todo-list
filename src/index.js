@@ -1,9 +1,8 @@
 import { createEventListener, defaultArray } from "./application-module";
 
-import { renderBigProjectsArray } from "./dom-module";
-
-createEventListener(defaultArray);
+import { renderBigProjectsArray, renderProject } from "./dom-module";
 
 renderBigProjectsArray();
+renderProject(defaultArray, "pink");
 
 import "./style.css";

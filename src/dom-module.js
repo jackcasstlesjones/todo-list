@@ -58,8 +58,17 @@ function renderProjectHeader(projectName) {
   contentDiv.appendChild(projectHeader);
 }
 
+function renderProjectAddBtn() {
+  const addButton = document.createElement("button");
+  addButton.textContent = "Add To Do Item";
+  contentDiv.appendChild(addButton);
+  return addButton;
+}
+
 function renderProject(projectArray, colour) {
   contentDiv.innerHTML = "";
+  const newAddButton = renderProjectAddBtn();
+  createEventListener(projectArray, newAddButton);
 
   projectArray.forEach(function (arrayElement) {
     const newToDoElement = createTodoCards();
