@@ -106,6 +106,8 @@ function renderProject(projectArray) {
 
     const showOrHide = arrayElement.showOrHide;
 
+    newToDoElement.style.opacity = arrayElement.opacity;
+
     bottomDiv.classList.add(showOrHide, "detail-div");
 
     // Remove button
@@ -120,6 +122,15 @@ function renderProject(projectArray) {
     // Priority dropdown with ability to edit
     const priorityDropdown = createPriorityDropdown(bottomDiv, arrayElement);
     priorityDropdownFunction(priorityDropdown, arrayElement, projectArray);
+
+    // Complete To Do button
+    const completedBtn = createCompleteToDoButton(topDiv);
+    toDoCompleteFunction(
+      completedBtn,
+      newToDoElement,
+      arrayElement,
+      projectArray
+    );
   });
 }
 
@@ -182,6 +193,21 @@ function priorityDropdownFunction(button, arrayElement, projectArray) {
   button.addEventListener("change", function () {
     arrayElement.priority = button.value;
 
+    renderProject(projectArray);
+  });
+}
+
+function createCompleteToDoButton(element) {
+  const button = document.createElement("button");
+  button.textContent = "Complete";
+  element.appendChild(button);
+
+  return button;
+}
+
+function toDoCompleteFunction(button, element, arrayElement, projectArray) {
+  button.addEventListener("click", function () {
+    arrayElement.opacity = 0.5;
     renderProject(projectArray);
   });
 }
