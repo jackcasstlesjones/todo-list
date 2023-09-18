@@ -1,19 +1,23 @@
 import {
   defaultArray,
-  getLocalStorage,
-  getLocalStorageBigProj,
+  // getLocalStorage,
+  // getLocalStorageBigProj,
 } from "./application-module";
 
 import { renderBigProjectsArray, renderProject } from "./dom-module";
 
-const savedBigProj = getLocalStorageBigProj();
+// const savedBigProj = getLocalStorageBigProj();
 // console.log(savedBigProj);
-renderBigProjectsArray(savedBigProj);
+// renderBigProjectsArray(savedBigProj);
 
-const savedData = getLocalStorage();
+// const savedData = getLocalStorage();
 
-renderProject(savedData);
+// renderProject(savedData);
+
+renderProject(defaultArray);
+renderProject(defaultArray, "hide");
+renderBigProjectsArray();
 
 import "./style.css";
 
-export { savedData };
+// export { savedData };

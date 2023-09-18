@@ -44,9 +44,11 @@ class CreateProject {
   }
 }
 
+// NEED TO FIGURE OUT WHAT IS GOING ON HERE !!!! //
 const defaultProject = new CreateProject("Coding");
 defaultProject.pushToBigProjectsArray();
 const defaultArray = defaultProject.returnProject();
+// SKETCHY CODE ^^^^^^^^^^ ////////////////////////
 
 function createObject() {
   const title = getUserTitle();
@@ -96,24 +98,24 @@ function addCreateProjectFunction(element) {
 
 ///////////////////////////////////////////// LOCAL STORAGE
 
-function saveToLocalStorage(myVal) {
-  localStorage.setItem("value", JSON.stringify(myVal));
-}
+// function saveToLocalStorage(myVal) {
+//   localStorage.setItem("value", JSON.stringify(myVal));
+// }
 
-function getLocalStorage() {
-  const ourStorage = JSON.parse(localStorage.getItem("value"));
-  return ourStorage;
-}
+// function getLocalStorage() {
+//   const ourStorage = JSON.parse(localStorage.getItem("value"));
+//   return ourStorage;
+// }
 
-function saveLocalStorageBigProj(myVal) {
-  localStorage.setItem("bigProj", JSON.stringify(myVal));
-}
+// function saveLocalStorageBigProj(myVal) {
+//   localStorage.setItem("bigProj", JSON.stringify(myVal));
+// }
 
-function getLocalStorageBigProj() {
-  const ourStorage = JSON.parse(localStorage.getItem("bigProj"));
-  // console.log(ourStorage);
-  return ourStorage;
-}
+// function getLocalStorageBigProj() {
+//   const ourStorage = JSON.parse(localStorage.getItem("bigProj"));
+//   // console.log(ourStorage);
+//   return ourStorage;
+// }
 
 export {
   createObject,
@@ -125,8 +127,8 @@ export {
   currentProject,
   CreateProject,
   addCreateProjectFunction,
-  getLocalStorage,
-  saveToLocalStorage,
-  saveLocalStorageBigProj,
-  getLocalStorageBigProj,
+  // getLocalStorage,
+  // saveToLocalStorage,
+  // saveLocalStorageBigProj,
+  // getLocalStorageBigProj,
 };

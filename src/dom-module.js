@@ -3,11 +3,11 @@ import {
   bigProjectsArray,
   addButtonEventListener,
   addCreateProjectFunction,
-  saveLocalStorageBigProj,
-  saveToLocalStorage,
+  // saveLocalStorageBigProj,
+  // saveToLocalStorage,
 } from "./application-module";
 
-import { savedData } from "./index";
+// import { savedData } from "./index";
 
 // HTML input elements
 const userTitle = document.getElementById("title");
@@ -86,8 +86,8 @@ function showButtonFunction(button, element, arrayElement, className) {
 // Render individual project inside content Div
 
 function renderProject(projectArray) {
-  saveToLocalStorage(projectArray);
-  saveLocalStorageBigProj(bigProjectsArray);
+  // saveToLocalStorage(projectArray);
+  // saveLocalStorageBigProj(bigProjectsArray);
 
   // Reset content div innerHTMl
   contentDiv.innerHTML = "";
