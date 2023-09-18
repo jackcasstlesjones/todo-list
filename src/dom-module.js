@@ -20,6 +20,8 @@ const createProjectBtn = document.getElementById("create-project");
 
 const projectHeader = document.getElementById("project-header");
 
+const addBtnDiv = document.getElementById("add-button-div");
+
 ///////// Get user inputs /////////
 function getUserTitle() {
   return userTitle.value;
@@ -60,7 +62,8 @@ function renderProjectAddBtn() {
   const addButton = document.createElement("button");
   addButton.textContent = "Add To Do Item";
   addButton.classList.add("add-to-do-button");
-  contentDiv.appendChild(addButton);
+  addBtnDiv.innerHTML = "";
+  addBtnDiv.appendChild(addButton);
   return addButton;
 }
 
