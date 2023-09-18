@@ -59,6 +59,7 @@ function createDiv(element) {
 function renderProjectAddBtn() {
   const addButton = document.createElement("button");
   addButton.textContent = "Add To Do Item";
+  addButton.classList.add("add-to-do-button");
   contentDiv.appendChild(addButton);
   return addButton;
 }
