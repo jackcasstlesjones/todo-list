@@ -185,12 +185,30 @@ button {
   background-color: #4361ee;
   padding: 20px;
   width: 100%;
+  gap: 32px;
   display: flex;
   justify-content: center;
   align-items: center;
   color: white;
   display: flex;
   flex-direction: column;
+}
+
+.title-div {
+  width: 100%;
+  display: flex;
+}
+
+.title-div button {
+  font-size: 16px;
+  margin-left: auto;
+}
+
+.detail-div {
+  width: 100%;
+  background-color: white;
+  color: black;
+  padding: 32px;
 }
 
 .hide {

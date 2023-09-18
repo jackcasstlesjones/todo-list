@@ -87,9 +87,11 @@ function renderProject(projectArray) {
     showButton.textContent = "Show more";
     showButtonFunction(showButton, bottomDiv);
     topDiv.textContent = `Title: ${arrayElement.title} Due Date: ${arrayElement.dueDate}`;
+    topDiv.classList.add("title-div");
     topDiv.appendChild(showButton);
+
     bottomDiv.textContent = `Description: ${arrayElement.description} Priority: ${arrayElement.priority}`;
-    bottomDiv.classList.add("hide");
+    bottomDiv.classList.add("hide", "detail-div");
     const removeBtn = createRemoveButton(newToDoElement);
     newToDoElement.dataset.index = projectArray.indexOf(arrayElement);
     addRemoveFunction(removeBtn, newToDoElement.dataset.index, projectArray);
