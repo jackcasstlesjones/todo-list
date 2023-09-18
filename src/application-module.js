@@ -17,6 +17,7 @@ class ToDoCreate {
     this.description = description;
     this.dueDate = dueDate;
     this.priority = priority;
+    this.showOrHide = "hide";
   }
 }
 
@@ -68,7 +69,7 @@ function addButtonEventListener(array, element) {
   element.addEventListener("click", function (e) {
     e.preventDefault();
     pushToProject(array);
-    renderProject(array);
+    renderProject(array, "hide");
   });
 }
 

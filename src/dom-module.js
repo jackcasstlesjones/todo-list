@@ -61,9 +61,17 @@ function renderProjectAddBtn() {
   return addButton;
 }
 
-function showButtonFunction(button, element) {
+function showButtonFunction(button, element, arrayElement, className) {
   button.addEventListener("click", function () {
-    element.classList.toggle("hide");
+    if (arrayElement.showOrHide === "hide") {
+      element.classList.remove(arrayElement.showOrHide);
+      arrayElement.showOrHide = "show";
+    } else if (arrayElement.showOrHide === "show") {
+      element.classList.remove(arrayElement.showOrHide);
+      arrayElement.showOrHide = "hide";
+    }
+    console.log(arrayElement.showOrHide);
+    element.classList.add(arrayElement.showOrHide);
   });
 }
 
@@ -89,13 +97,16 @@ function renderProject(projectArray) {
     // Create show button function
     const showButton = document.createElement("button");
     showButton.textContent = "Show more";
-    showButtonFunction(showButton, bottomDiv);
+    showButtonFunction(showButton, bottomDiv, arrayElement);
     topDiv.textContent = `Title: ${arrayElement.title} Due Date: ${arrayElement.dueDate}`;
     topDiv.classList.add("title-div");
     topDiv.appendChild(showButton);
 
     bottomDiv.textContent = `Description: ${arrayElement.description} Priority: ${arrayElement.priority}`;
-    bottomDiv.classList.add("hide", "detail-div");
+
+    const showOrHide = arrayElement.showOrHide;
+
+    bottomDiv.classList.add(showOrHide, "detail-div");
 
     // Remove button
     const removeBtn = createRemoveButton(newToDoElement);
@@ -106,6 +117,7 @@ function renderProject(projectArray) {
     const editBtn = createEditButton(bottomDiv);
     editBtnFunction(editBtn, arrayElement, projectArray, bottomDiv);
 
+    // Priority dropdown with ability to edit
     const priorityDropdown = createPriorityDropdown(bottomDiv, arrayElement);
     priorityDropdownFunction(priorityDropdown, arrayElement, projectArray);
   });
@@ -137,7 +149,6 @@ function editBtnFunction(button, arrayElement, projectArray, div) {
     arrayElement.description = newDetails;
 
     renderProject(projectArray);
-    div.classList.remove("hide");
   });
 }
 
