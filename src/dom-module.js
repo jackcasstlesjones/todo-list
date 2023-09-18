@@ -81,8 +81,12 @@ function renderProject(projectArray) {
   projectArray.forEach(function (arrayElement) {
     const newToDoElement = createToDoElement();
     newToDoElement.classList.add("to-do-card");
+
+    // Create separate divs in each to do card
     const topDiv = createDiv(newToDoElement);
     const bottomDiv = createDiv(newToDoElement);
+
+    // Create show button function
     const showButton = document.createElement("button");
     showButton.textContent = "Show more";
     showButtonFunction(showButton, bottomDiv);
@@ -92,9 +96,15 @@ function renderProject(projectArray) {
 
     bottomDiv.textContent = `Description: ${arrayElement.description} Priority: ${arrayElement.priority}`;
     bottomDiv.classList.add("hide", "detail-div");
+
+    // Remove button
     const removeBtn = createRemoveButton(newToDoElement);
     newToDoElement.dataset.index = projectArray.indexOf(arrayElement);
     addRemoveFunction(removeBtn, newToDoElement.dataset.index, projectArray);
+
+    // Edit button
+    const editBtn = createEditButton(bottomDiv);
+    editBtnFunction(editBtn, arrayElement, projectArray, bottomDiv);
   });
 }
 
@@ -105,6 +115,27 @@ function createRemoveButton(element) {
   newBtn.classList.add("remove-button");
   element.appendChild(newBtn);
   return newBtn;
+}
+
+// Create a HTML edit button
+function createEditButton(element) {
+  const editBtn = document.createElement("button");
+  editBtn.textContent = "Edit";
+  editBtn.classList.add("edit-button");
+  element.appendChild(editBtn);
+  return editBtn;
+}
+
+// Edit button function
+function editBtnFunction(button, arrayElement, projectArray, div) {
+  button.addEventListener("click", function () {
+    const newDetails = prompt("What do you want the new details to be?");
+
+    arrayElement.description = newDetails;
+
+    renderProject(projectArray);
+    div.classList.remove("hide");
+  });
 }
 
 ///////////////////////// BIG PROJECT ARRAY & PROJECTS //////////////////////////////////////////////////////////
