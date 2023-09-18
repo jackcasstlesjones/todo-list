@@ -9,6 +9,8 @@ import {
 
 const bigProjectsArray = [];
 
+const createProjectBtn = document.getElementById("create-project");
+
 let currentProject = "coding";
 
 class ToDoCreate {
@@ -46,7 +48,6 @@ class CreateProject {
 const defaultProject = new CreateProject("Coding");
 defaultProject.pushToBigProjectsArray();
 const defaultArray = defaultProject.returnProject();
-console.log(defaultArray);
 
 function createObject() {
   const title = getUserTitle();
@@ -63,6 +64,16 @@ function pushToProject(projectArray) {
   return newObj;
 }
 
+///////////////////////////// EVENT LISTENERS ///////////////////////
+
+function addButtonEventListener(array, element) {
+  element.addEventListener("click", function (e) {
+    e.preventDefault();
+    pushToProject(array);
+    renderProject(array);
+  });
+}
+
 // Functionality for the remove button to splice from the project index
 function addRemoveFunction(element, index, projectArray) {
   element.addEventListener("click", function () {
@@ -71,36 +82,25 @@ function addRemoveFunction(element, index, projectArray) {
   });
 }
 
-///////////////////////////// EVENT LISTENERS ///////////////////////
-
-function createEventListener(array, element) {
-  element.addEventListener("click", function (e) {
-    console.log(array);
-    e.preventDefault();
-    pushToProject(array);
-    renderProject(array, "orange");
+function addCreateProjectFunction(element) {
+  element.addEventListener("click", function () {
+    const projectName = prompt(
+      "What would you like your project to be called?"
+    );
+    const newProjectObj = new CreateProject(projectName);
+    newProjectObj.pushToBigProjectsArray();
+    renderBigProjectsArray();
   });
 }
-
-function removeEventListener(element) {
-  element.removeEventListener;
-}
-
-const createProjectBtn = document.getElementById("create-project");
-createProjectBtn.addEventListener("click", function () {
-  const projectName = prompt("What would you like your project to be called?");
-  const newProjectObj = new CreateProject(projectName);
-  newProjectObj.pushToBigProjectsArray();
-  renderBigProjectsArray();
-});
 
 export {
   createObject,
   pushToProject,
   addRemoveFunction,
   defaultArray,
-  createEventListener,
+  addButtonEventListener,
   bigProjectsArray,
   currentProject,
   CreateProject,
+  addCreateProjectFunction,
 };
