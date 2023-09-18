@@ -9,8 +9,6 @@ import {
 
 const bigProjectsArray = [];
 
-const createProjectBtn = document.getElementById("create-project");
-
 let currentProject = "coding";
 
 class ToDoCreate {
