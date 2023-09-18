@@ -189,6 +189,16 @@ button {
   justify-content: center;
   align-items: center;
   color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
 }
 
 ul {

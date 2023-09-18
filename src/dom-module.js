@@ -18,13 +18,6 @@ const createProjectBtn = document.getElementById("create-project");
 
 const projectHeader = document.getElementById("project-header");
 
-// Create a ToDo Element
-function createToDoElement() {
-  const newTodo = document.createElement("p");
-  content.appendChild(newTodo);
-  return newTodo;
-}
-
 ///////// Get user inputs /////////
 function getUserTitle() {
   return userTitle.value;
@@ -48,11 +41,30 @@ function renderProjectHeader(projectName) {
   contentDiv.prepend(projectHeader);
 }
 
+// Create a ToDo Element
+function createToDoElement() {
+  const newTodo = document.createElement("p");
+  content.appendChild(newTodo);
+  return newTodo;
+}
+
+function createDiv(element) {
+  const newDiv = document.createElement("div");
+  element.appendChild(newDiv);
+  return newDiv;
+}
+
 function renderProjectAddBtn() {
   const addButton = document.createElement("button");
   addButton.textContent = "Add To Do Item";
   contentDiv.appendChild(addButton);
   return addButton;
+}
+
+function showButtonFunction(button, element) {
+  button.addEventListener("click", function () {
+    element.classList.toggle("hide");
+  });
 }
 
 // Render individual project inside content Div
@@ -69,7 +81,15 @@ function renderProject(projectArray) {
   projectArray.forEach(function (arrayElement) {
     const newToDoElement = createToDoElement();
     newToDoElement.classList.add("to-do-card");
-    newToDoElement.textContent = `Title: ${arrayElement.title} Description: ${arrayElement.description} Due Date: ${arrayElement.dueDate} Priority: ${arrayElement.priority}`;
+    const topDiv = createDiv(newToDoElement);
+    const bottomDiv = createDiv(newToDoElement);
+    const showButton = document.createElement("button");
+    showButton.textContent = "Show more";
+    showButtonFunction(showButton, bottomDiv);
+    topDiv.textContent = `Title: ${arrayElement.title} Due Date: ${arrayElement.dueDate}`;
+    topDiv.appendChild(showButton);
+    bottomDiv.textContent = `Description: ${arrayElement.description} Priority: ${arrayElement.priority}`;
+    bottomDiv.classList.add("hide");
     const removeBtn = createRemoveButton(newToDoElement);
     newToDoElement.dataset.index = projectArray.indexOf(arrayElement);
     addRemoveFunction(removeBtn, newToDoElement.dataset.index, projectArray);
