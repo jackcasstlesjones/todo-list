@@ -88,7 +88,8 @@ function addCreateProjectFunction(element) {
     );
     const newProjectObj = new CreateProject(projectName);
     newProjectObj.pushToBigProjectsArray();
-    saveLocalStorageBigProj(bigProjectsArray);
+    // console.log(bigProjectsArray);
+    // saveLocalStorageBigProj(bigProjectsArray);
     renderBigProjectsArray();
   });
 }
@@ -110,7 +111,7 @@ function saveLocalStorageBigProj(myVal) {
 
 function getLocalStorageBigProj() {
   const ourStorage = JSON.parse(localStorage.getItem("bigProj"));
-  console.log(ourStorage);
+  // console.log(ourStorage);
   return ourStorage;
 }
 

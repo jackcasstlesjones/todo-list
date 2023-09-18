@@ -7,6 +7,8 @@ import {
   saveToLocalStorage,
 } from "./application-module";
 
+import { savedData } from "./index";
+
 // HTML input elements
 const userTitle = document.getElementById("title");
 const userDescription = document.getElementById("description");
@@ -263,7 +265,8 @@ function renderBigProjectsArray() {
       // Render the current array elements project array
       renderProject(arrayElement.projectArray);
 
-      projectHeader.textContent = arrayElement.name;
+      console.log(arrayElement.projectArray);
+      // projectHeader.textContent = arrayElement.name;
     });
 
     // Add each project element to the big projects container

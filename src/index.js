@@ -7,10 +7,13 @@ import {
 import { renderBigProjectsArray, renderProject } from "./dom-module";
 
 const savedBigProj = getLocalStorageBigProj();
-console.log(savedBigProj);
+// console.log(savedBigProj);
 renderBigProjectsArray(savedBigProj);
 
 const savedData = getLocalStorage();
+
 renderProject(savedData);
 
 import "./style.css";
+
+export { savedData };
