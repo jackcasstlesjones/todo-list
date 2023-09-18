@@ -3,6 +3,9 @@ import {
   bigProjectsArray,
   addButtonEventListener,
   addCreateProjectFunction,
+  saveBigProjLocalStorage,
+  getLocalStorage,
+  saveToLocalStorage,
 } from "./application-module";
 
 // HTML input elements
@@ -78,6 +81,8 @@ function showButtonFunction(button, element, arrayElement, className) {
 // Render individual project inside content Div
 
 function renderProject(projectArray) {
+  saveToLocalStorage(projectArray);
+
   // Reset content div innerHTMl
   contentDiv.innerHTML = "";
 

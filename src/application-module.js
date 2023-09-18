@@ -92,6 +92,27 @@ function addCreateProjectFunction(element) {
   });
 }
 
+///////////////////////////////////////////// LOCAL STORAGE
+
+function saveToLocalStorage(myVal) {
+  localStorage.setItem("value", JSON.stringify(myVal));
+  const testing = localStorage.getItem("value");
+  console.log(testing);
+}
+
+function saveBigProjLocalStorage() {
+  bigProjectsArray.forEach(function (arrayElement) {
+    saveToLocalStorage(arrayElement);
+  });
+}
+
+function saveProjectLocalStorage() {}
+
+function getLocalStorage(myVal) {
+  const ourStorage = JSON.parse(localStorage.getItem("value"));
+  return ourStorage;
+}
+
 export {
   createObject,
   pushToProject,
@@ -102,4 +123,7 @@ export {
   currentProject,
   CreateProject,
   addCreateProjectFunction,
+  getLocalStorage,
+  saveBigProjLocalStorage,
+  saveToLocalStorage,
 };
