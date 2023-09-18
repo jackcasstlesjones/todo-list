@@ -105,6 +105,9 @@ function renderProject(projectArray) {
     // Edit button
     const editBtn = createEditButton(bottomDiv);
     editBtnFunction(editBtn, arrayElement, projectArray, bottomDiv);
+
+    const priorityDropdown = createPriorityDropdown(bottomDiv, arrayElement);
+    priorityDropdownFunction(priorityDropdown, arrayElement, projectArray);
   });
 }
 
@@ -135,6 +138,40 @@ function editBtnFunction(button, arrayElement, projectArray, div) {
 
     renderProject(projectArray);
     div.classList.remove("hide");
+  });
+}
+
+function createPriorityDropdown(element, arrayElement) {
+  const priorityDropdown = document.createElement("select");
+  const optionOne = document.createElement("option");
+  optionOne.textContent = "High";
+  optionOne.value = "High";
+  const optionTwo = document.createElement("option");
+  optionTwo.textContent = "Medium";
+  optionTwo.value = "Medium";
+  const optionThree = document.createElement("option");
+  optionThree.textContent = "Low";
+  optionThree.value = "Low";
+
+  if (arrayElement.priority === "High") {
+    optionOne.setAttribute("selected", true);
+  } else if (arrayElement.priority === "Medium") {
+    optionTwo.setAttribute("selected", true);
+  } else if (arrayElement.priority === "Low") {
+    optionThree.setAttribute("selected", true);
+  }
+  priorityDropdown.appendChild(optionOne);
+  priorityDropdown.appendChild(optionTwo);
+  priorityDropdown.appendChild(optionThree);
+  element.appendChild(priorityDropdown);
+  return priorityDropdown;
+}
+
+function priorityDropdownFunction(button, arrayElement, projectArray) {
+  button.addEventListener("change", function () {
+    arrayElement.priority = button.value;
+
+    renderProject(projectArray);
   });
 }
 
