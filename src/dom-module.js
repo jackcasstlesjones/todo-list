@@ -3,8 +3,7 @@ import {
   bigProjectsArray,
   addButtonEventListener,
   addCreateProjectFunction,
-  saveBigProjLocalStorage,
-  getLocalStorage,
+  saveLocalStorageBigProj,
   saveToLocalStorage,
 } from "./application-module";
 
@@ -82,6 +81,7 @@ function showButtonFunction(button, element, arrayElement, className) {
 
 function renderProject(projectArray) {
   saveToLocalStorage(projectArray);
+  saveLocalStorageBigProj(bigProjectsArray);
 
   // Reset content div innerHTMl
   contentDiv.innerHTML = "";

@@ -1,8 +1,15 @@
-import { defaultArray, getLocalStorage } from "./application-module";
+import {
+  defaultArray,
+  getLocalStorage,
+  getLocalStorageBigProj,
+} from "./application-module";
 
 import { renderBigProjectsArray, renderProject } from "./dom-module";
 
-renderBigProjectsArray();
+const savedBigProj = getLocalStorageBigProj();
+console.log(savedBigProj);
+renderBigProjectsArray(savedBigProj);
+
 const savedData = getLocalStorage();
 renderProject(savedData);
 
