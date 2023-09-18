@@ -98,17 +98,20 @@ function renderProject(projectArray) {
 
     // Create separate divs in each to do card
     const topDiv = createDiv(newToDoElement);
+    const titleContent = createDiv(newToDoElement);
     const bottomDiv = createDiv(newToDoElement);
+    titleContent.classList.add("title-content");
+    titleContent.textContent = `Title: ${arrayElement.title} (Due: ${arrayElement.dueDate})`;
 
     // Create show button function
     const showButton = document.createElement("button");
     showButton.textContent = "Show more";
     showButtonFunction(showButton, bottomDiv, arrayElement);
-    topDiv.textContent = `Title: ${arrayElement.title} Due Date: ${arrayElement.dueDate}`;
     topDiv.classList.add("title-div");
     topDiv.appendChild(showButton);
 
-    bottomDiv.textContent = `Description: ${arrayElement.description} Priority: ${arrayElement.priority}`;
+    const descriptionContent = createDiv(bottomDiv);
+    descriptionContent.textContent = `Description: ${arrayElement.description}`;
 
     const showOrHide = arrayElement.showOrHide;
 
@@ -121,13 +124,19 @@ function renderProject(projectArray) {
     newToDoElement.dataset.index = projectArray.indexOf(arrayElement);
     addRemoveFunction(removeBtn, newToDoElement.dataset.index, projectArray);
 
-    // Edit button
-    const editBtn = createEditButton(bottomDiv);
-    editBtnFunction(editBtn, arrayElement, projectArray, bottomDiv);
-
     // Priority dropdown with ability to edit
-    const priorityDropdown = createPriorityDropdown(bottomDiv, arrayElement);
+    const priorityDiv = createDiv(bottomDiv);
+    priorityDiv.classList.add("priority-div");
+    const priorityDropdown = createPriorityDropdown(
+      priorityDiv,
+      arrayElement,
+      bottomDiv
+    );
     priorityDropdownFunction(priorityDropdown, arrayElement, projectArray);
+
+    // Edit button
+    const editBtn = createEditButton(priorityDiv);
+    editBtnFunction(editBtn, arrayElement, projectArray, bottomDiv);
 
     // Complete To Do button
     const completedBtn = createCompleteToDoButton(topDiv);
@@ -169,8 +178,10 @@ function editBtnFunction(button, arrayElement, projectArray, div) {
   });
 }
 
-function createPriorityDropdown(element, arrayElement) {
+function createPriorityDropdown(element, arrayElement, styledElement) {
   const priorityDropdown = document.createElement("select");
+  const label = document.createElement("p");
+  label.textContent = "Priority:";
   const optionOne = document.createElement("option");
   optionOne.textContent = "High";
   optionOne.value = "High";
@@ -183,11 +194,15 @@ function createPriorityDropdown(element, arrayElement) {
 
   if (arrayElement.priority === "High") {
     optionOne.setAttribute("selected", true);
+    priorityDropdown.style.backgroundColor = "#E03C32";
   } else if (arrayElement.priority === "Medium") {
     optionTwo.setAttribute("selected", true);
+    priorityDropdown.style.backgroundColor = "#FFD301";
   } else if (arrayElement.priority === "Low") {
+    priorityDropdown.style.backgroundColor = "#7BB662";
     optionThree.setAttribute("selected", true);
   }
+  element.appendChild(label);
   priorityDropdown.appendChild(optionOne);
   priorityDropdown.appendChild(optionTwo);
   priorityDropdown.appendChild(optionThree);
